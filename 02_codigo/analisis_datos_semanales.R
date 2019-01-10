@@ -1,6 +1,6 @@
 ### Paquetes ----
 library(pacman)
-p_load(ggrepel, janitor, scales, readxl, tidyverse, treemapify, wesanderson)
+p_load(ggrepel, janitor, lubridate, scales, readxl, tidyverse, treemapify, wesanderson)
 
 
 ### Setup ----
