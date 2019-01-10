@@ -29,6 +29,9 @@ tema <-  theme_minimal() +
 
 bd_semanal <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas.xlsx", sheet = "Inventarios")
 
+bd_mensual <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas_mensuales.xlsx", sheet = "Inventarios")
+
 
 ### "Limpiar" nombres de variables ----
 bd_semanal <- clean_names(bd_semanal)
+bd_mensual <- clean_names(bd_mensual)
