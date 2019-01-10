@@ -30,3 +30,5 @@ tema <-  theme_minimal() +
 bd_inv <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas.xlsx", sheet = "Inventarios")
 
 
+### "Limpiar" nombres de variables ----
+bd_inv <- clean_names(bd_inv)
