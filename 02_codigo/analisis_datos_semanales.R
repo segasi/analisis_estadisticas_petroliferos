@@ -22,3 +22,11 @@ tema <-  theme_minimal() +
         legend.title.align = 0.5,
         axis.title = element_text(size = 18, hjust = 1, face = "bold", margin = margin(0,0,0,0), family="Didact Gothic Regular"),
         axis.text = element_text(size = 16, face = "bold", family="Didact Gothic Regular"))
+
+### Importar datos ----
+
+# Fuente: http://estadisticashidrocarburos.energia.gob.mx/Datos_semana.aspx
+
+bd <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas.xlsx")
+
+
