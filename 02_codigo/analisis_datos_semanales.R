@@ -27,6 +27,6 @@ tema <-  theme_minimal() +
 
 # Fuente: http://estadisticashidrocarburos.energia.gob.mx/Datos_semana.aspx
 
-bd <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas.xlsx")
+bd_inv <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas.xlsx", sheet = "Inventarios")
 
 
