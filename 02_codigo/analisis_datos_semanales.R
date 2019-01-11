@@ -209,3 +209,30 @@ bd_semanal %>%
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+
+
+### Gráfica: inventario semanal de gasolina de más de 91 octanos en 75 terminales de almacenamiento en seis estados, 2018 ----
+bd_semanal %>% 
+  filter(producto == "Gasolina >= a 91 octanos",
+         tipo_de_terminal == "Almacenamiento",
+         estado %in% c("Estado de México", "Guanajuato", "Jalisco", "Michoacán", "Querétaro", "Veracruz")) %>%
+  group_by(terminal) %>% 
+  mutate(suma_mb = sum(mb)) %>% 
+  ungroup() %>%
+  ggplot(aes(semana, fct_rev(terminal), fill = log(mb))) +
+  geom_tile(color = "white") +
+  geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "#ae052b", size = 1) +
+  scale_fill_gradient(low = "white", high = "#FF424E", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 8)) +
+  scale_x_datetime(date_breaks = "2 weeks", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_y_discrete(expand = c(0, 0)) +
+  facet_wrap(~ estado, scale = "free_y", ncol = 2) +
+  labs(title = str_wrap(str_to_upper("inventario semanal de gasolina de más de 91 octanos en las terminales de almacenamiento de seis estados, 2018"), width = 90), 
+       subtitle = str_wrap("Cada recuadro representa el número de miles de barriles (log) en el inventario de cada terminal en la semana correspondiente. Mientras más rojo el recuadro, mayor el inventario de gasolina en dicha semana. Los recuadros grises indican semanas en las que el inventario de la respectiva terminal de almacenamiento era de cero barriles.", width = 135),
+       x = "\n", 
+       y = NULL, 
+       fill = "Miles de   \n barriles (log)   ",
+       caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
+  tema_hm +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        plot.title = element_text(size = 30)) +
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
