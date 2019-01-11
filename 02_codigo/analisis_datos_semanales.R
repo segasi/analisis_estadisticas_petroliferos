@@ -96,8 +96,9 @@ bd_semanal %>%
   ungroup() %>%
   ggplot(aes(semana, fct_rev(terminal), fill = log(mb))) +
   geom_tile(color = "white") +
+  geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1) +
   scale_fill_gradient(low = "white", high = "#ae052b", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 10)) +
-  scale_x_datetime(date_breaks = "1 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(date_breaks = "1 month", expand = c(0, 0), date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina en 75 terminales de almacenamiento en méxico, 2018"), width = 85), 
        subtitle = str_wrap("Cada recuadro representa el número de miles de barriles (log) en el inventario de cada terminal en la semana correspondiente. Mientras más rojo el recuadro, mayor el inventario de gasolina en dicha semana. Los recuadros grises indican semanas en las que el inventario de la respectiva terminal de almacenamiento era de cero barriles.", width = 135),
        x = "\n", 
