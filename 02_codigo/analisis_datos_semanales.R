@@ -53,3 +53,15 @@ bd_mensual <- read_excel("01_datos/EstadÃ_sticas EnergÃ©ticas_mensuales.xlsx"
 ### "Limpiar" nombres de variables ----
 bd_semanal <- clean_names(bd_semanal)
 bd_mensual <- clean_names(bd_mensual)
+
+### Transformaciones varias ----
+bd_mensual <- bd_mensual %>% 
+  mutate(mb = as.numeric(mb), # Transformar tipo de variable a numeric
+         fecha = dmy_hms(fecha), # Transformar tipo de variable a dttm
+         mes = fct_relevel(mes, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")) 
+
+
+bd_semanal <- bd_semanal %>% 
+  mutate(mb = as.numeric(mb), # Transformar tipo de variable a numeric
+         semana = dmy_hms(semana), # Transformar tipo de variable a dttm
+         mes = fct_relevel(mes, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")) 
