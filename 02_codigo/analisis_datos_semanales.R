@@ -67,6 +67,26 @@ bd_semanal <- bd_semanal %>%
          mes = fct_relevel(mes, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")) 
 
 
+### Generar variables para representar semana del mes en gráficas ----
+bd_semanal <- 
+  bd_semanal %>% 
+  mutate(mes = month(semana), 
+         semana_mes = ceiling((day(semana) + first_day_of_month_wday(semana) - 1) / 7),  
+         semana_año = format(semana, "%V"),
+         mes_texto = case_when(mes == 1 ~ "Ene",
+                               mes == 2 ~ "Feb",
+                               mes == 3 ~ "Mar",
+                               mes == 4 ~ "Abr",
+                               mes == 5 ~ "May",
+                               mes == 6 ~ "Jun",
+                               mes == 7 ~ "Jul",
+                               mes == 8 ~ "Ago",
+                               mes == 9 ~ "Sept",
+                               mes == 10 ~ "Oct",
+                               mes == 11 ~ "Nov",
+                               mes == 12 ~ "Dic"),
+         mes_semana = paste(mes_texto, semana_mes, sep = "-")) 
+
 ### Gráfica: inventario semanal de gasolina en 75 terminales de almacenamiento en méxico, 2018 ----
 bd_semanal %>% 
   filter(producto == "Gasolina",
@@ -75,7 +95,7 @@ bd_semanal %>%
   mutate(suma_mb = sum(mb)) %>% 
   ungroup() %>%
   ggplot(aes(semana, fct_rev(terminal), fill = log(mb))) +
-  geom_tile() +
+  geom_tile(color = "white") +
   scale_fill_gradient(low = "white", high = "#ae052b", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 10)) +
   scale_x_datetime(date_breaks = "1 week", expand = c(0, 0), date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina en 75 terminales de almacenamiento en méxico, 2018"), width = 85), 
@@ -98,9 +118,10 @@ bd_semanal %>%
   mutate(suma_mb = sum(mb)) %>% 
   ungroup() %>%
   ggplot(aes(semana, fct_rev(terminal), fill = log(mb))) +
-  geom_tile() +
+  geom_tile(color = "white") +
+  geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1) +
   scale_fill_gradient(low = "white", high = "#ae052b", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 8)) +
-  scale_x_datetime(date_breaks = "2 weeks", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(date_breaks = "1 month", expand = c(0, 0), date_labels = ("%b")) +
   scale_y_discrete(expand = c(0, 0)) +
   facet_wrap(~ estado, scale = "free_y", ncol = 2) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina en las terminales de almacenamiento de seis estados, 2018"), width = 90), 
@@ -110,6 +131,5 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-        plot.title = element_text(size = 30)) +
+  theme(plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
