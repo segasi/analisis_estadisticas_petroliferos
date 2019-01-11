@@ -72,7 +72,7 @@ bd_semanal <-
   bd_semanal %>% 
   mutate(mes = month(semana), 
          semana_mes = ceiling((day(semana) + first_day_of_month_wday(semana) - 1) / 7),  
-         semana_año = format(semana, "%V"),
+         semana_año = as.numeric(format(semana, "%V")),
          mes_texto = case_when(mes == 1 ~ "Ene",
                                mes == 2 ~ "Feb",
                                mes == 3 ~ "Mar",
