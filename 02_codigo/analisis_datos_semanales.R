@@ -112,7 +112,7 @@ bd_semanal %>%
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
 
-### Gráfica: inventario semanal de gasolina en 75 terminales de almacenamiento en seis estados, 2018 ----
+### Gráfica: inventario semanal de gasolina en terminales de almacenamiento en seis estados, 2018 ----
 bd_semanal %>% 
   filter(producto == "Gasolina",
          tipo_de_terminal == "Almacenamiento",
@@ -162,7 +162,7 @@ bd_semanal %>%
 
 
 
-### Gráfica: inventario semanal de gasolina de menos de 91 octanos en 75 terminales de almacenamiento en seis estados, 2018 ----
+### Gráfica: inventario semanal de gasolina de menos de 91 octanos en terminales de almacenamiento en seis estados, 2018 ----
 bd_semanal %>% 
   filter(producto == "Gasolina < a 91 octanos",
          tipo_de_terminal == "Almacenamiento",
@@ -211,7 +211,7 @@ bd_semanal %>%
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
 
-### Gráfica: inventario semanal de gasolina de más de 91 octanos en 75 terminales de almacenamiento en seis estados, 2018 ----
+### Gráfica: inventario semanal de gasolina de más de 91 octanos terminales de almacenamiento en seis estados, 2018 ----
 bd_semanal %>% 
   filter(producto == "Gasolina >= a 91 octanos",
          tipo_de_terminal == "Almacenamiento",
