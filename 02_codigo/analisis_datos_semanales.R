@@ -101,6 +101,7 @@ bd_semanal %>%
   geom_tile() +
   scale_fill_gradient(low = "white", high = "#ae052b", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 8)) +
   scale_x_datetime(date_breaks = "2 weeks", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_y_discrete(expand = c(0, 0)) +
   facet_wrap(~ estado, scale = "free_y", ncol = 2) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina en las terminales de almacenamiento de seis estados, 2018"), width = 90), 
        subtitle = str_wrap("Cada recuadro representa el número de miles de barriles (log) en el inventario de cada terminal en la semana correspondiente. Mientras más rojo el recuadro, mayor el inventario de gasolina en dicha semana. Los recuadros grises indican semanas en las que el inventario de la respectiva terminal de almacenamiento era de cero barriles.", width = 135),
