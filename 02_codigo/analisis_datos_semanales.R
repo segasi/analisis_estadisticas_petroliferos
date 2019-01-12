@@ -108,7 +108,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
@@ -134,7 +134,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
         plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log_estados_seleccionados.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
@@ -157,7 +157,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct_por_terminal_log.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
@@ -184,7 +184,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
         plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
@@ -207,7 +207,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct_por_terminal_log.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
@@ -233,7 +233,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
         plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
@@ -252,7 +252,7 @@ bd_semanal %>%
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1, linetype = 2) +
   annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 10, label = "AMLO", fontface = "bold", size = 10, color = "grey50") +
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
-  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina"), width = 65),
        x = "\n", 
        y = NULL,
@@ -279,7 +279,7 @@ bd_semanal %>%
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1, linetype = 2) +
   annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 10, label = "AMLO", fontface = "bold", size = 10, color = "grey50") +
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
-  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de menos de 91 octanos"), width = 65),
        x = "\n", 
        y = NULL,
@@ -305,7 +305,7 @@ bd_semanal %>%
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1, linetype = 3) +
   annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 24, label = "AMLO", fontface = "bold", size = 10, color = "grey50") +
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 24, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
-  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de más de 91 octanos"), width = 65),
        x = "\n", 
        y = NULL,
