@@ -109,7 +109,7 @@ bd_semanal %>%
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
 ### Gráfica: inventario semanal de gasolina en terminales de almacenamiento en seis estados, 2018 ----
@@ -136,7 +136,7 @@ bd_semanal %>%
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1),
         plot.title = element_text(size = 30)) +
-  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log_estados_seleccionados.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
 ### Gráfica: inventario semanal de gasolina de menos de 91 octanos en 75 terminales de almacenamiento en seis estados, 2018 ----
@@ -158,7 +158,7 @@ bd_semanal %>%
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct_por_terminal_log.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
 
@@ -186,7 +186,7 @@ bd_semanal %>%
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1),
         plot.title = element_text(size = 30)) +
-  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
 ### Gráfica: inventario semanal de gasolina de más de 91 octanos en 75 terminales de almacenamiento en seis estados, 2018 ----
@@ -208,7 +208,7 @@ bd_semanal %>%
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct_por_terminal_log.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 
 ### Gráfica: inventario semanal de gasolina de más de 91 octanos terminales de almacenamiento en seis estados, 2018 ----
@@ -235,7 +235,7 @@ bd_semanal %>%
   tema_hm +
   theme(axis.text.x = element_text(angle = 90, hjust = 1),
         plot.title = element_text(size = 30)) +
-  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
+  ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/gasolina/", width = 23, height = 18, dpi = 200)
 
 ### Gráfica: número semanal de terminales de almacenamiento con cero barriles de gasolina de inventario ----
 bd_semanal %>% 
@@ -260,7 +260,7 @@ bd_semanal %>%
   tema +
   theme(panel.grid.major = element_blank(),
         axis.text.y = element_blank()) +
-  ggsave(filename = "num_tars_inventario_gasolina_vacio.png", path = "03_graficas/", width = 15, height = 10, dpi = 200)
+  ggsave(filename = "num_tars_inventario_gasolina_vacio.png", path = "03_graficas/gasolina/", width = 15, height = 10, dpi = 200)
 
 
 
@@ -287,7 +287,7 @@ bd_semanal %>%
   tema +
   theme(panel.grid.major = element_blank(),
         axis.text.y = element_blank()) +
-  ggsave(filename = "num_tars_inventario_gasolina_menos_91_vacio.png", path = "03_graficas/", width = 15, height = 10, dpi = 200)
+  ggsave(filename = "num_tars_inventario_gasolina_menos_91_vacio.png", path = "03_graficas/gasolina/", width = 15, height = 10, dpi = 200)
 
 
 ### Gráfica: número semanal de terminales de almacenamiento con cero barriles de gasolina de más de 91 octanos de inventario ----
@@ -313,5 +313,5 @@ bd_semanal %>%
   tema +
   theme(panel.grid.major = element_blank(),
         axis.text.y = element_blank()) +
-  ggsave(filename = "num_tars_inventario_gasolina_mas_91_vacio.png", path = "03_graficas/", width = 15, height = 10, dpi = 200)  
+  ggsave(filename = "num_tars_inventario_gasolina_mas_91_vacio.png", path = "03_graficas/gasolina/", width = 15, height = 10, dpi = 200)  
 
