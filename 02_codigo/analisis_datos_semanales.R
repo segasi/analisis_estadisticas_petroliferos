@@ -100,7 +100,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-18 00:00:00"), y = 67, label = "AMLO", fontface = "bold", size = 11, color = "grey30") +
   annotate(geom = "text", x = as_datetime("2018-11-22 00:00:00"), y = 67, label = "EPN", fontface = "bold", size = 11, color = "grey30") +
   scale_fill_gradient(low = "white", high = "#ae052b", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 10)) +
-  scale_x_datetime(date_breaks = "1 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina en 75 terminales de almacenamiento en méxico, 2018"), width = 85), 
        subtitle = str_wrap("Cada recuadro representa el número de miles de barriles (log) en el inventario de cada terminal en la semana correspondiente. Mientras más rojo el recuadro, mayor el inventario de gasolina en dicha semana. Los recuadros grises indican semanas en las que el inventario de la respectiva terminal de almacenamiento era de cero barriles.", width = 135),
        x = "\n", 
@@ -124,7 +124,7 @@ bd_semanal %>%
   geom_tile(color = "white") +
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1) +
   scale_fill_gradient(low = "white", high = "#ae052b", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 8)) +
-  scale_x_datetime(date_breaks = "2 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   scale_y_discrete(expand = c(0, 0)) +
   facet_wrap(~ estado, scale = "free_y", ncol = 2) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina en las terminales de almacenamiento de seis estados, 2018"), width = 90), 
@@ -149,7 +149,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-18 00:00:00"), y = 67, label = "AMLO", fontface = "bold", size = 11, color = "grey30") +
   annotate(geom = "text", x = as_datetime("2018-11-22 00:00:00"), y = 67, label = "EPN", fontface = "bold", size = 11, color = "grey30") +
   scale_fill_gradient(low = "white", high = "#00B573", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 10)) +
-  scale_x_datetime(date_breaks = "1 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina de menos de 91 octanos en 75 terminales de almacenamiento en méxico, 2018"), width = 85), 
        subtitle = str_wrap("Cada recuadro representa el número de miles de barriles (log) en el inventario de cada terminal en la semana correspondiente. Mientras más rojo el recuadro, mayor el inventario de gasolina en dicha semana. Los recuadros grises indican semanas en las que el inventario de la respectiva terminal de almacenamiento era de cero barriles.", width = 135),
        x = "\n", 
@@ -174,7 +174,7 @@ bd_semanal %>%
   geom_tile(color = "white") +
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "#ae052b", size = 1) +
   scale_fill_gradient(low = "white", high = "#00B573", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 8)) +
-  scale_x_datetime(date_breaks = "2 weeks", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   scale_y_discrete(expand = c(0, 0)) +
   facet_wrap(~ estado, scale = "free_y", ncol = 2) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina de menos de 91 octanos en las terminales de almacenamiento de seis estados, 2018"), width = 90), 
@@ -199,7 +199,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-18 00:00:00"), y = 31, label = "AMLO", fontface = "bold", size = 11, color = "grey30") +
   annotate(geom = "text", x = as_datetime("2018-11-22 00:00:00"), y = 31, label = "EPN", fontface = "bold", size = 11, color = "grey30") +
   scale_fill_gradient(low = "white", high = "#FF424E", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 10)) +
-  scale_x_datetime(date_breaks = "1 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina de más de 91 octanos en 75 terminales de almacenamiento en méxico, 2018"), width = 85), 
        subtitle = str_wrap("Cada recuadro representa el número de miles de barriles (log) en el inventario de cada terminal en la semana correspondiente. Mientras más rojo el recuadro, mayor el inventario de gasolina en dicha semana. Los recuadros grises indican semanas en las que el inventario de la respectiva terminal de almacenamiento era de cero barriles.", width = 135),
        x = "\n", 
@@ -223,7 +223,7 @@ bd_semanal %>%
   geom_tile(color = "white") +
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "#ae052b", size = 1) +
   scale_fill_gradient(low = "white", high = "#FF424E", guide = guide_colorbar(barwidth = 12, nbins = 10), breaks = pretty_breaks(n = 8)) +
-  scale_x_datetime(date_breaks = "2 weeks", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   scale_y_discrete(expand = c(0, 0)) +
   facet_wrap(~ estado, scale = "free_y", ncol = 2) +
   labs(title = str_wrap(str_to_upper("inventario semanal de gasolina de más de 91 octanos en las terminales de almacenamiento de seis estados, 2018"), width = 90), 
@@ -252,7 +252,7 @@ bd_semanal %>%
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1, linetype = 2) +
   annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 10, label = "AMLO", fontface = "bold", size = 10, color = "grey50") +
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
-  scale_x_datetime(date_breaks = "2 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina"), width = 65),
        x = "\n", 
        y = NULL,
@@ -279,7 +279,7 @@ bd_semanal %>%
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1, linetype = 2) +
   annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 10, label = "AMLO", fontface = "bold", size = 10, color = "grey50") +
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
-  scale_x_datetime(date_breaks = "2 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de menos de 91 octanos"), width = 65),
        x = "\n", 
        y = NULL,
@@ -305,7 +305,7 @@ bd_semanal %>%
   geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 1, linetype = 3) +
   annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 24, label = "AMLO", fontface = "bold", size = 10, color = "grey50") +
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 24, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
-  scale_x_datetime(date_breaks = "2 week", expand = c(0, 0), date_labels = ("%b-%d")) +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "2 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de más de 91 octanos"), width = 65),
        x = "\n", 
        y = NULL,
