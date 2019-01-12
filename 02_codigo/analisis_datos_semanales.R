@@ -108,7 +108,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
 
@@ -134,7 +134,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
         plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
@@ -157,7 +157,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
 
@@ -184,7 +184,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
         plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_menos_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
@@ -207,7 +207,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct_por_terminal_log.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
 
@@ -233,7 +233,7 @@ bd_semanal %>%
        fill = "Miles de   \n barriles (log)   ",
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Debido al sesgo en la distribución del inventario de gasolina, uso la versión logarítmica de esta variable.", width = 110)) +
   tema_hm +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
         plot.title = element_text(size = 30)) +
   ggsave(filename = "niveles_semanales_de_inventarios_de_gasolinas_mas_91_oct__por_terminal_log_estados_seleccionados.png", path = "03_graficas/", width = 23, height = 18, dpi = 200)
 
