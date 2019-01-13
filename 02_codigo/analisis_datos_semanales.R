@@ -254,7 +254,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
   scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina"), width = 65),
-       x = "Fecha del corte semanal de la información\n", 
+       x = "\nFecha del corte semanal de información\n", 
        y = NULL,
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj", width = 110)) +
   tema +
@@ -281,7 +281,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
   scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de menos de 91 octanos"), width = 65),
-       x = "Fecha del corte semanal de la información\n",
+       x = "\nFecha del corte semanal de información\n",
        y = NULL,
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj", width = 110)) +
   tema +
@@ -307,7 +307,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 24, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
   scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de más de 91 octanos"), width = 65),
-       x = "Fecha del corte semanal de la información\n", 
+       x = "\nFecha del corte semanal de información\n", 
        y = NULL,
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj", width = 110)) +
   tema +
@@ -315,3 +315,40 @@ bd_semanal %>%
         axis.text.y = element_blank()) +
   ggsave(filename = "num_tars_inventario_gasolina_mas_91_vacio.png", path = "03_graficas/gasolina/", width = 15, height = 10, dpi = 200)  
 
+
+### Gráfica: número semanal de terminales de almacenamiento con cero barriles de inventario, por tipo de gasolina ----
+bd_semanal %>% 
+  filter(str_detect(producto, "Gasolina"),
+         tipo_de_terminal == "Almacenamiento", 
+         mb == 00,
+         semana > as_datetime("2018-11-01 12:00:00")) %>%
+  group_by(semana, producto) %>% 
+  count() %>% 
+  ungroup() %>% 
+  mutate(etiqueta_grandes = ifelse(n > 1, n, ""),
+         etiqueta_chicos = ifelse(n == 1, n, "")) %>% 
+  ggplot(aes(semana, n, fill = producto)) +
+  geom_col(alpha = 0.9) +
+  geom_text(aes(label = etiqueta_grandes), size = 8, color = "white", fontface = "bold", vjust = 1.7) +
+  geom_text(aes(label = etiqueta_chicos), size = 8, color = "grey50", fontface = "bold", vjust = -0.6) +
+  geom_vline(xintercept = as_datetime("2018-12-04 00:00:00"), color = "black", size = 0.8, linetype = 3) +
+  annotate(geom = "text", x = as_datetime("2018-12-07 12:00:00"), y = 23, label = "AMLO", fontface = "bold", size = 8, color = "grey50") +
+  annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 23, label = "EPN", fontface = "bold", size = 8, color = "grey50") +
+  scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
+  scale_fill_manual(values = c("#ae052b", "#00B573", "#FF424E")) +
+  facet_wrap(~ producto, nrow = 3) +
+  labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles, por tipo de gasolina"), width = 55),
+       x = "\nFecha del corte semanal de información\n", 
+       y = NULL,
+       caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj. Consultado el 10 de enero de 2018.", width = 110)) +
+  tema +
+  theme(panel.grid.major = element_blank(),
+        axis.text.y = element_blank(), 
+        axis.text.x = element_text(size = 25),
+        axis.title.x = element_text(size = 25),
+        plot.caption = element_text(size = 25),
+        plot.title = element_text(size = 35),
+        legend.position = "none",
+        strip.background = element_rect(color = "grey60", fill = "grey60"),
+        strip.text = element_text(color = "white", size = 30)) +
+  ggsave(filename = "num_tars_inventario_por_tipo_gasolina_vacio.png", path = "03_graficas/gasolina", width = 15, height = 24, dpi = 200)  
