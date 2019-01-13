@@ -254,7 +254,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
   scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 week"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina"), width = 65),
-       x = "\n", 
+       x = "Fecha del corte semanal de la información\n", 
        y = NULL,
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj", width = 110)) +
   tema +
@@ -281,7 +281,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 10, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
   scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de menos de 91 octanos"), width = 65),
-       x = "\n", 
+       x = "Fecha del corte semanal de la información\n",
        y = NULL,
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj", width = 110)) +
   tema +
@@ -307,7 +307,7 @@ bd_semanal %>%
   annotate(geom = "text", x = as_datetime("2018-12-01 00:00:00"), y = 24, label = "EPN", fontface = "bold", size = 10, color = "grey50") +
   scale_x_datetime(breaks = seq(as_datetime("2018-01-05 12:00:00"), as_datetime("2018-12-28 12:00:00"), by = "1 weeks"), expand = c(0, 0),  date_labels = ("%b-%d")) +
   labs(title = str_wrap(str_to_upper("número semanal de terminales de almacenamiento con inventario de cero barriles de gasolina de más de 91 octanos"), width = 65),
-       x = "\n", 
+       x = "Fecha del corte semanal de la información\n", 
        y = NULL,
        caption = str_wrap("\nSebastián Garrido de Sierra / @segasi / Fuente: SENER, url: bit.ly/2FsYvqj", width = 110)) +
   tema +
